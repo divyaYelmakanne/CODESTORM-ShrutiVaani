@@ -1,0 +1,4 @@
+flask
+flask-cors
+# vosk (for offline STT)
+# coqui-tts (for offline TTS) 
