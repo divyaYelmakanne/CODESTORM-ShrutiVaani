@@ -1,4 +1,4 @@
-# 🗣️ ShrutiVaani - VoiceBridge
+# 🗣️ ShrutiVaani - Voice for All
 
 **Breaking Barriers in Communication**
 
