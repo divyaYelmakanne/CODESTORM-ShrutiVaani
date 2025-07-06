@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShrutiVaani – Inclusive Indian Language Translator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-blue-50 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-700 text-white p-6 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">🗣️ ShrutiVaani</h1>
+      <nav class="space-x-4">
+        <a href="#features" class="hover:underline">Features</a>
+        <a href="#demo" class="hover:underline">Try ShrutiVaani</a>
+        <a href="#about" class="hover:underline">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-10 text-center">
+    <h2 class="text-3xl font-semibold mb-3">Breaking Barriers in Communication</h2>
+    <p class="max-w-xl mx-auto text-lg">Empowering people with hearing and speech impairments through real-time voice-to-text and text-to-voice translation in Indian regional languages.</p>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-12 bg-white">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-bold mb-6 text-center">🔑 Key Features</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-blue-100 p-5 rounded-lg shadow-sm">
+          <h4 class="text-xl font-semibold">🎤 Voice-to-Text (Speech Recognition)</h4>
+          <p>Transcribes spoken words into text in real time, with support for Indian dialects.</p>
+        </div>
+        <div class="bg-blue-100 p-5 rounded-lg shadow-sm">
+          <h4 class="text-xl font-semibold">📢 Text-to-Voice (Speech Synthesis)</h4>
+          <p>Converts typed messages into spoken audio in selected Indian languages.</p>
+        </div>
+        <div class="bg-blue-100 p-5 rounded-lg shadow-sm">
+          <h4 class="text-xl font-semibold">🌐 Multi-Language Support</h4>
+          <p>Switch easily between Hindi, Tamil, Telugu, Bengali, Kannada, and more.</p>
+                     
+        </div>
+        <div class="bg-blue-100 p-5 rounded-lg shadow-sm">
+          <h4 class="text-xl font-semibold">📴 Offline Functionality</h4>
+          <p>Basic translation and speech services work without internet access.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section id="demo" class="py-12 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-bold mb-6 text-center">🧪 Try the ShrutiVaani</h3>
+
+      <div class="bg-white rounded-lg shadow-lg p-6 max-w-3xl mx-auto">
+        
+        <!-- Language Selector -->
+        <div class="mb-4">
+          <label class="block font-semibold mb-1">Choose Language:</label>
+          <select id="languageSelect" class="w-full p-2 border rounded">
+              <option value="as-IN">Assamese</option>
+              <option value="bn-IN">Bengali</option>
+              <option value="brx-IN">Bodo</option>
+              <option value="doi-IN">Dogri</option>
+              <option value="gu-IN">Gujarati</option>
+              <option value="hi-IN" selected>Hindi</option>
+              <option value="kn-IN">Kannada</option>
+              <option value="ks-IN">Kashmiri</option>
+              <option value="kok-IN">Konkani</option>
+              <option value="mai-IN">Maithili</option>
+              <option value="ml-IN">Malayalam</option>
+              <option value="mni-IN">Manipuri</option>
+              <option value="mr-IN">Marathi</option>
+              <option value="ne-NP">Nepali</option>
+              <option value="or-IN">Oriya</option>
+              <option value="pa-IN">Punjabi</option>
+              <option value="sa-IN">Sanskrit</option>
+              <option value="sat-IN">Santali</option>
+              <option value="sd-IN">Sindhi</option>
+              <option value="ta-IN">Tamil</option>
+              <option value="te-IN">Telugu</option>
+              <option value="ur-IN">Urdu</option>
+              <option value="ur-IN">English</option>
+          </select>
+        </div>
+
+        <!-- Voice to Text -->
+        <div class="mb-6">
+          <label class="block font-semibold mb-1">🎤 Speak Something:</label>
+          <button onclick="startRecognition()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 mb-2">Start Listening</button>
+          <textarea id="voiceText" class="w-full border p-3 rounded mt-2" rows="3" placeholder="Recognized text will appear here..."></textarea>
+        </div>
+
+        <!-- Text to Voice -->
+        <div>
+          <label class="block font-semibold mb-1">✍️ Type a Message:</label>
+          <textarea id="textToSpeak" class="w-full border p-3 rounded mb-2" rows="3" placeholder="Enter text to convert into speech..."></textarea>
+          <button onclick="speakText()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">🔊 Speak</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-12 text-center">
+    <h3 class="text-2xl font-bold mb-4">🌱 About ShrutiVaani</h3>
+    <p class="max-w-2xl mx-auto text-lg">ShrutiVaani is a step toward inclusive communication using regional Indian languages. Designed for simplicity and accessibility, this app bridges gaps for those with hearing and speech impairments by translating voice into text and vice versa in real time.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-700 text-white py-4 text-center">
+    <p>&copy; 2025 ShrutiVaani. Empowering Communication for All.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function startRecognition() {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      const lang = document.getElementById('languageSelect').value;
+      recognition.lang = lang;
+      recognition.interimResults = false;
+
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        document.getElementById('voiceText').value = transcript;
+      };
+
+      recognition.onerror = function () {
+        alert("Could not recognize speech. Try again.");
+      };
+
+      recognition.start();
+    }
+
+    function speakText() {
+      const text = document.getElementById('textToSpeak').value;
+      const lang = document.getElementById('languageSelect').value;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
