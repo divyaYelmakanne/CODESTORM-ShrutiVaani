@@ -1,0 +1,28 @@
+--> For running Backend
+
+-> Open Powershell terminal in VsCode
+
+-> cd Backend
+
+-> python app.py
+
+-> it gives as : Running on http://127.0.0.1:5000
+
+
+--> now for running Frontend
+
+-> Open another Powershell terminal in VsCode
+
+-> cd Frontend
+
+-> npm install
+
+-> npm start
+
+-> it will give as : 
+   
+   > voicebridge-frontend@1.0.0 start
+   > react-scripts start
+   Compiled successfully!
+
+   You can now view ShrutiVaani-frontend in the browser.
